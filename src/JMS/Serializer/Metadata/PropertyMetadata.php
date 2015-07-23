@@ -39,6 +39,7 @@ class PropertyMetadata extends BasePropertyMetadata
     public $xmlAttribute = false;
     public $xmlValue = false;
     public $xmlNamespace;
+    public $xmlCollectionEntry;
     public $xmlKeyValuePairs = false;
     public $xmlElementCData = true;
     public $getter;
@@ -113,6 +114,7 @@ class PropertyMetadata extends BasePropertyMetadata
             $this->xmlAttribute,
             $this->xmlValue,
             $this->xmlNamespace,
+            $this->xmlCollectionEntry,
             $this->xmlKeyValuePairs,
             $this->xmlElementCData,
             $this->getter,
@@ -140,6 +142,7 @@ class PropertyMetadata extends BasePropertyMetadata
             $this->xmlAttribute,
             $this->xmlValue,
             $this->xmlNamespace,
+            $this->xmlCollectionEntry,
             $this->xmlKeyValuePairs,
             $this->xmlElementCData,
             $this->getter,
