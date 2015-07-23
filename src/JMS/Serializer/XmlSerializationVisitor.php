@@ -164,6 +164,10 @@ class XmlSerializationVisitor extends AbstractVisitor
 
         foreach ($data as $k => $v) {
             $tagName = (null !== $this->currentMetadata && $this->currentMetadata->xmlKeyValuePairs && $this->isElementNameValid($k)) ? $k : $entryName;
+            if(null !== $this->currentMetadata && null !== $this->currentMetadata->xmlCollectionEntry){
+                $userTagName = call_user_func($this->currentMetadata->xmlCollectionEntry, $v);
+                $tagName = $this->isElementNameValid($userTagName) ? $userTagName : $tagName;
+            }
 
             $entryNode = $this->document->createElement($tagName);
             $this->currentNode->appendChild($entryNode);
