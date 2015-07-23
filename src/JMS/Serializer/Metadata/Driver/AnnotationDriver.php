@@ -19,6 +19,7 @@
 namespace JMS\Serializer\Metadata\Driver;
 
 use JMS\Serializer\Annotation\Discriminator;
+use JMS\Serializer\Annotation\XmlCollectionEntry;
 use JMS\Serializer\GraphNavigator;
 use JMS\Serializer\Annotation\HandlerCallback;
 use JMS\Serializer\Annotation\AccessorOrder;
@@ -175,6 +176,8 @@ class AnnotationDriver implements DriverInterface
                         $propertyMetadata->xmlCollectionInline = $annot->inline;
                         $propertyMetadata->xmlEntryName = $annot->entry;
                         $propertyMetadata->xmlKeyAttribute = $annot->keyAttribute;
+                    } elseif ($annot instanceof XmlCollectionEntry) {
+                        $propertyMetadata->xmlCollectionEntry = $annot->callback;
                     } elseif ($annot instanceof XmlKeyValuePairs) {
                         $propertyMetadata->xmlKeyValuePairs = true;
                     } elseif ($annot instanceof XmlAttribute) {
